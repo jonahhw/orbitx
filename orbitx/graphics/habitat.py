@@ -134,7 +134,7 @@ class Habitat(ThreeDeeObj):
         pass
 
     def _label_text(self, entity: Entity) -> str:
-        label = entity.name
+        label = super()._label_text(entity)
         if entity.broken:
             label += ' [BROKEN]'
         label += '\nFuel: ' + common.format_num(entity.fuel, " kg")

@@ -52,8 +52,8 @@ class AYSE(ThreeDeeObj):
         pass
 
     def _label_text(self, entity: Entity) -> str:
-        return (
-                f'{entity.name}\n'
-                f'Fuel: {common.format_num(entity.fuel, " kg")}' +
-                ('\nLanded' if entity.landed() else '')
-        )
+        label = super()._label_text(entity)
+        label += '\nFuel: ' + common.format_num(entity.fuel, " kg")
+        if entity.landed():
+            label += '\nLanded'
+        return label

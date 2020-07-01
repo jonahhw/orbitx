@@ -28,4 +28,5 @@ class Planet(ThreeDeeObj):
         )
 
     def _label_text(self, entity: Entity) -> str:
-        return entity.name
+        label = super()._label_text(entity)
+        return label

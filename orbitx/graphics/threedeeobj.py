@@ -48,7 +48,8 @@ class ThreeDeeObj(metaclass=ABCMeta):
     def _label_text(self, entity: Entity) -> str:
         """Return text that should be put in the label for a 3d object.
         This method is evaluated every frame using the newest physics data."""
-        pass
+        label = entity.name
+        return label
 
     # When creating a new 3D object, usually you don't have to worry about
     # anything below here. All you have to do is override the three above
