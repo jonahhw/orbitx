@@ -4,7 +4,7 @@ import vpython
 
 from orbitx.physics import calc
 from orbitx import common
-from orbitx.data_structures import Entity
+from orbitx.data_structures import Entity, PhysicsState
 from orbitx.graphics.threedeeobj import ThreeDeeObj
 
 
@@ -51,8 +51,8 @@ class AYSE(ThreeDeeObj):
         # AYSE doesn't have landing graphics
         pass
 
-    def _label_text(self, entity: Entity) -> str:
-        label = super()._label_text(entity)
+    def _label_text(self, entity: Entity, state: PhysicsState) -> str:
+        label = super()._label_text(entity, state)
         label += '\nFuel: ' + common.format_num(entity.fuel, " kg")
         if entity.landed():
             label += '\nLanded'

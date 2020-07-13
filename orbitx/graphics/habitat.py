@@ -133,8 +133,8 @@ class Habitat(ThreeDeeObj):
         # Habitats don't have landing graphics
         pass
 
-    def _label_text(self, entity: Entity) -> str:
-        label = super()._label_text(entity)
+    def _label_text(self, entity: Entity, state: PhysicsState) -> str:
+        label = super()._label_text(entity, state)
         if entity.broken:
             label += ' [BROKEN]'
         label += '\nFuel: ' + common.format_num(entity.fuel, " kg")

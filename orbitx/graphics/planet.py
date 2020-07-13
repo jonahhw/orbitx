@@ -4,7 +4,7 @@ import vpython
 
 from orbitx.common import DEFAULT_FORWARD, DEFAULT_UP
 from orbitx.physics import calc
-from orbitx.data_structures import Entity
+from orbitx.data_structures import Entity, PhysicsState
 from orbitx.graphics.threedeeobj import ThreeDeeObj
 
 
@@ -27,6 +27,6 @@ class Planet(ThreeDeeObj):
             shininess=Planet.SHININIESS
         )
 
-    def _label_text(self, entity: Entity) -> str:
-        label = super()._label_text(entity)
+    def _label_text(self, entity: Entity, state: PhysicsState) -> str:
+        label = super()._label_text(entity, state)
         return label

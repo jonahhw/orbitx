@@ -45,7 +45,7 @@ class ThreeDeeObj(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def _label_text(self, entity: Entity) -> str:
+    def _label_text(self, entity: Entity, state: PhysicsState) -> str:
         """Return text that should be put in the label for a 3d object.
         This method is evaluated every frame using the newest physics data."""
         label = entity.name
@@ -67,7 +67,8 @@ class ThreeDeeObj(metaclass=ABCMeta):
 
         self._label = vpython.label(
             pos=self._obj.pos, xoffset=10, yoffset=10, border=4, font='sans',
-            text=self._label_text(entity))
+            text=entity.name
+        )
 
     def _show_hide_label(self) -> None:
         self._label.visible = not self._label.visible
@@ -79,7 +80,7 @@ class ThreeDeeObj(metaclass=ABCMeta):
         self._obj.axis = calc.angle_to_vpy(entity.heading)
 
         # update label objects
-        self._label.text = self._label_text(entity)
+        self._label.text = self._label_text(entity, state)
         self._label.pos = entity.screen_pos(origin)
 
     def pos(self) -> vpython.vector:

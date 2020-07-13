@@ -3,7 +3,7 @@ from typing import Optional
 import vpython
 
 from orbitx.physics import calc
-from orbitx.data_structures import Entity
+from orbitx.data_structures import Entity, PhysicsState
 from orbitx.graphics.threedeeobj import ThreeDeeObj
 
 
@@ -31,5 +31,5 @@ class ScienceModule(ThreeDeeObj):
         obj.radius = entity.r
         return obj
 
-    def _label_text(self, entity: Entity) -> str:
+    def _label_text(self, entity: Entity, state: PhysicsState) -> str:
         return entity.name
